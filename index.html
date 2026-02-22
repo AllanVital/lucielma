@@ -1,0 +1,75 @@
+<style>
+.botoes-container{
+    display: block;
+    top:0;
+    width: 100%;
+    max-width: 56.25vh;
+    height: 100vh;
+    margin: 0 auto !important;  
+    padding: 0 !important;
+}
+@media (min-width: 1023px) {
+    #b1 {object-fit:contain; width:30%; height:15%; position:relative; top:84%; left:2%; z-index:2; opacity: 0; background:transparent; border:none; color:transparent; cursor:pointer;}
+    #b2 {object-fit:contain; width:30%; height:15%; position:relative; top:84%; left:4%; z-index:2; opacity: 0; background:transparent; border:none; color:transparent; cursor:pointer;}
+    #b3 {object-fit:contain; width:30%; height:15%; position:relative; top:84%; left:4%; z-index:2; opacity: 0; background:transparent; border:none; color:transparent; cursor:pointer;}
+}
+@media (max-width: 1023px) {
+    #b1 {object-fit:contain; width:32%; height:15%; position:relative; top:76%; left:2%; z-index:2; opacity: 0; background:transparent; border:none; color:transparent; cursor:pointer;}
+    #b2 {object-fit:contain; width:32%; height:15%; position:relative; top:76%; left:4%; z-index:2; opacity: 0; background:transparent; border:none; color:transparent; cursor:pointer;}
+    #b3 {object-fit:contain; width:30%; height:15%; position:relative; top:76%; left:6%; z-index:2; opacity: 0; background:transparent; border:none; color:transparent; cursor:pointer;}
+}
+
+</style>
+
+
+<div class="botoes-container">
+<img id="startImage" src="D:\Allan\Projetos\Programação\Lucielma\Convite-v3 Final(Com Botões).mp4" style="width:100%; height:100%; object-fit:contain; cursor:pointer; position:absolute; top:0; left:0; z-index:3; transition: opacity 1s ease;">
+
+<img id="popup" src="https://eternitestudio.com/wp-content/uploads/2026/02/Presentes-S2.png" onclick="popupout()" style="width:100%; height:100%; object-fit:contain; cursor:pointer; position:absolute; top:0; left:0; z-index:3; display:none">
+
+<video id ="vid" loop src="https://eternitestudio.com/wp-content/uploads/2026/02/Convite-v3-FinalCom-Botoes.mp4" style="width:100%; height:100%; position:absolute; top:0; left:0; z-index:1;"></video>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScF-T9hvOlQlOd9szGPRx4x7ntP3uylw-ddaGGVv05l9DycMQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer"><button id="b1" type="button" style="display:none;">I am an invisible button</button></a>
+
+<a href="https://maps.app.goo.gl/RfXE62ZX48ZzytxK8" target="_blank" rel="noopener noreferrer"><button id="b2" type="button" style="display:none;">I am an invisible button</button></a>
+
+<button id="b3" type="button" onclick="popup()" style="display:none;">I am an invisible button</button>
+
+</div>
+
+
+<script>
+  const startImage = document.getElementById("startImage");
+  const video = document.getElementById("vid");
+
+  startImage.addEventListener("click", () => {
+    // Começa o fade out
+    startImage.style.opacity = 0;
+
+    // Mostra o vídeo imediatamente (para não ter preto)
+    video.style.display = "block";
+    
+    // Toca o vídeo
+    video.play().catch(err => console.log("Autoplay bloqueado:", err));
+
+    // Remove a imagem do DOM depois do fade (opcional)
+    setTimeout(() => {
+      startImage.style.display = "none";
+    }, 1000); // igual à duração do transition
+  });
+
+function showButton() {
+    document.getElementById('b1').style.display = 'inline'; 
+    document.getElementById('b2').style.display = 'inline'; 
+    document.getElementById('b3').style.display = 'inline'; 
+ }
+
+function popup(){
+    document.getElementById('popup').style.display = 'inline';
+}
+function popupout(){
+    document.getElementById('popup').style.display = 'none';
+}
+
+    setTimeout(showButton, 47000);
+</script>
